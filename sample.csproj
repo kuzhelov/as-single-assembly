@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="..." DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    ...
+    <OutputType>Exe</OutputType> <!-- or WinExe -->
+    <PowershellPath>$(SystemRoot)\system32\WindowsPowerShell\v1.0\powershell.exe</PowershellPath>
+    ...
+  </PropertyGroup>
+
+  <Target Name="BeforeBuild">
+    <Exec Command="$(PowershellPath) -NonInteractive $(MSBuildProjectDirectory)\scripts\ValidateEmbeddedAssembliesFunctionality.ps1 -projectFilePath &quot;$(MSBuildProjectDirectory)\$(MSBuildProjectName).csproj&quot; -outputPathPatternOfReferencedProjects $(OutDir) 2&gt;$(MSBuildProjectDirectory)\build_errors.txt" />
+  </Target>
+
+   <!-- next section should be created in order to pass all validation conditions -->
+   <!-- content of this section will be provided by the script -->
+
+   <!--ItemGroup>
+    <EmbeddedResource Include="Embedded\ReferencedProject1.dll" />
+    <EmbeddedResource Include="Embedded\ReferencedProject2.dll" />
+    ...
+  </ItemGroup-->
+
+</Project>
