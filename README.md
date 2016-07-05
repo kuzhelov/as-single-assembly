@@ -7,7 +7,7 @@ Just add invocation statement of the ValidateEmbeddedAssembliesFunctionality.ps1
 # Validation steps
 The following validation steps take step when the [ValidateEmbeddedAssembliesFunctionality.ps1](ValidateEmbeddedAssembliesFunctionality.ps1) is invoked:
 
-* validate that app's entry point has a static constructor with the assembly resolving handler being provided to the AppDomain
+* validate that app's entry point has a static constructor with the assembly resolving handler being provided to the AppDomain (and nothing more)
 
 * verify that all project dependencies (direct or indirect) are referenced in the project as embedded resources (that should reside in the **Embedded** project's directory)
 
